@@ -15,4 +15,12 @@ func SetupRoutes(r *gin.Engine) {
 		items.PUT("/:id", handlers.UpdateItem)
 		items.DELETE("/:id", handlers.DeleteItem)
 	}
+	stocks := r.Group("/stocks")
+	{
+		stocks.GET("", handlers.GetStocks)
+		stocks.GET("/:id", handlers.GetStock)
+		stocks.POST("", handlers.CreateStock)
+		stocks.PUT("/:id", handlers.UpdateStock)
+		stocks.DELETE("/:id", handlers.DeleteStock)
+	}
 }
